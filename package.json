@@ -4,16 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently pnpm:dev:*",
-    "dev:next": "next dev --turbo",
-    "build": "concurrently pnpm:build:*",
     "build:next": "next build",
-    "start": "concurrently pnpm:start:*",
-    "start:next": "next start",
-    "test": "concurrently pnpm:test:*",
-    "test:lint": "biome check . --write --unsafe",
+    "build": "concurrently pnpm:build:*",
+    "ci:test:lint": "biome check .",
     "ci:test": "concurrently pnpm:ci:test:*",
-    "ci:test:lint": "biome check ."
+    "dev:next": "next dev --turbo",
+    "dev": "concurrently pnpm:dev:*",
+    "start:next": "next start",
+    "start": "concurrently pnpm:start:*",
+    "test:lint": "biome check . --write --unsafe",
+    "test": "concurrently pnpm:test:*"
   },
   "dependencies": {
     "@xframework/core": "^0.1.1",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

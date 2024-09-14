@@ -4,16 +4,13 @@
     "enabled": true,
     "indentStyle": "space"
   },
-  "organizeImports": {
-    "enabled": true
-  },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
       "nursery": {
         "useSortedClasses": "error"
       },
+      "recommended": true,
       "style": {
         "useNodejsImportProtocol": {
           "level": "off"
@@ -21,9 +18,12 @@
       }
     }
   },
+  "organizeImports": {
+    "enabled": true
+  },
   "vcs": {
-    "enabled": true,
     "clientKind": "git",
+    "enabled": true,
     "useIgnoreFile": true
   }
 }

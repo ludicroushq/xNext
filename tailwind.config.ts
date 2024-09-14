@@ -1,18 +1,24 @@
+import tailwindTypography from "@tailwindcss/typography";
 import daisyui from "daisyui";
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  daisyui: {
+    themes: ["light"],
+    logs: false,
+  },
+  plugins: [tailwindTypography, daisyui],
   theme: {
     extend: {
       container: {
         padding: {
           DEFAULT: "1rem",
-          sm: "2rem",
-          lg: "4rem",
-          xl: "5rem",
           "2xl": "6rem",
+          lg: "4rem",
+          sm: "2rem",
+          xl: "5rem",
         },
       },
       fontFamily: {
@@ -24,11 +30,6 @@ const config: Config = {
         sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
       },
     },
-  },
-  plugins: [daisyui],
-  daisyui: {
-    themes: ["light"],
-    logs: false,
   },
 };
 export default config;
