@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Footer } from "./_components/footer";
@@ -15,6 +16,10 @@ const interTight = Inter_Tight({
   display: "swap",
   variable: "--font-inter-tight",
 });
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.TODO.com"),
+};
 
 export default function RootLayout({
   children,
