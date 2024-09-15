@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={twMerge(inter.variable, interTight.variable, "h-full")}
     >
-      <body className="flex h-full flex-col">
+      <body className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
