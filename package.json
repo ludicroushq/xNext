@@ -4,16 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:next": "next build",
     "build": "concurrently pnpm:build:*",
-    "ci:test:lint": "biome check .",
+    "build:next": "next build",
     "ci:test": "concurrently pnpm:ci:test:*",
-    "dev:next": "next dev --turbo",
+    "ci:test:lint": "biome check .",
     "dev": "concurrently pnpm:dev:*",
-    "start:next": "next start",
+    "dev:next": "next dev --turbo",
     "start": "concurrently pnpm:start:*",
+    "start:next": "next start",
+    "test": "concurrently pnpm:test:*",
     "test:lint": "biome check . --write --unsafe",
-    "test": "concurrently pnpm:test:*"
+    "test:typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@xframework/core": "^0.1.1",
