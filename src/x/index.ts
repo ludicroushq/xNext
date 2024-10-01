@@ -1,3 +1,3 @@
-import { X } from "@xframework/core";
+import { XFramework } from "@xframework/core";
 
-export const x = new X().start();
+export const x = new XFramework().build();
