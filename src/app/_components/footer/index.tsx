@@ -17,6 +17,7 @@ export function Footer() {
                 className="link-hover link"
                 href="https://www.xnext.dev"
                 target="_blank"
+                rel="noreferrer"
               >
                 xNext
               </Link>

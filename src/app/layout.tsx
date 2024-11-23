@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Inter, Inter_Tight as InterTight } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Footer } from "./_components/footer";
 import { Navbar } from "./_components/navbar";
@@ -11,7 +11,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const interTight = Inter_Tight({
+const interTight = InterTight({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter-tight",
