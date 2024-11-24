@@ -24,7 +24,7 @@ export function Navbar() {
       <div className="container mx-auto">
         <div className="navbar px-0">
           <div className="navbar-start">
-            <Link href="/" className="font-bold text-2xl">
+            <Link href="/" className="text-2xl font-bold">
               TODO
             </Link>
           </div>
