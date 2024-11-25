@@ -1,15 +1,10 @@
 import tailwindTypography from "@tailwindcss/typography";
-import daisyui from "daisyui";
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
-  daisyui: {
-    themes: ["light"],
-    logs: false,
-  },
-  plugins: [tailwindTypography, daisyui],
+  plugins: [tailwindTypography],
   theme: {
     extend: {
       container: {

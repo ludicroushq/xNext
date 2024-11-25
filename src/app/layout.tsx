@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight as InterTight } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import { Footer } from "./_components/footer";
-import { Navbar } from "./_components/navbar";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,9 +30,7 @@ export default function RootLayout({
       className={twMerge(inter.variable, interTight.variable, "h-full")}
     >
       <body className="flex min-h-screen flex-col">
-        <Navbar />
         <main className="flex-grow">{children}</main>
-        <Footer />
       </body>
     </html>
   );
