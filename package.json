@@ -7,7 +7,7 @@
     "build": "concurrently pnpm:build:*",
     "build:next": "next build",
     "ci:test": "concurrently pnpm:ci:test:*",
-    "ci:test:lint": "eslint . --max-warnings 0",
+    "ci:test:lint": "eslint --max-warnings 0 .",
     "ci:test:pretty": "prettier --check .",
     "ci:test:typecheck": "tsc --noEmit",
     "dev": "concurrently pnpm:dev:*",
@@ -16,7 +16,7 @@
     "start": "concurrently pnpm:start:*",
     "start:next": "next start",
     "test": "concurrently pnpm:test:*",
-    "test:lint": "eslint --fix . --max-warnings 0",
+    "test:lint": "eslint --fix --max-warnings 0 .",
     "test:pretty": "prettier --write .",
     "test:typecheck": "tsc --noEmit"
   },
