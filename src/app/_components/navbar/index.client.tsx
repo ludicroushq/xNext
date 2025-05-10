@@ -1,4 +1,5 @@
 "use client";
+import { x } from "@/x";
 import { HomeIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -24,7 +25,7 @@ export function NavbarClient() {
         <div className="navbar p-0">
           <div className="navbar-start">
             <Link href="/" className="text-xl font-bold">
-              TODO
+              {x.config.name}
             </Link>
           </div>
 

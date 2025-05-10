@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { x } from "@/x";
 export async function Footer() {
   const year = new Date().getFullYear();
 
@@ -9,7 +9,7 @@ export async function Footer() {
         <footer className="footer">
           <nav>
             <h6 className="footer-title">
-              &copy; {year} TODO. All rights reserved.
+              &copy; {year} {x.config.name}. All rights reserved.
             </h6>
             <aside>
               Powered by{" "}

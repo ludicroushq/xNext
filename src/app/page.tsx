@@ -1,7 +1,8 @@
+import { x } from "@/x";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TODO",
+  title: x.config.name,
 };
 
 export default function Home() {

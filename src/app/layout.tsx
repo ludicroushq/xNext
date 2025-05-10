@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import "./globals.css";
 import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
+import { x } from "@/x";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,7 +19,7 @@ const interTight = InterTight({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.TODO.com"),
+  metadataBase: new URL(x.config.baseURL),
 };
 
 export default function RootLayout({
