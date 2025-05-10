@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { x } from "@/x";
+import { x } from "@/x/server";
 export async function Footer() {
   const year = new Date().getFullYear();
 

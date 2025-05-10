@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import "./globals.css";
 import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
-import { x } from "@/x";
+import { x } from "@/x/server";
 
 const inter = Inter({
   subsets: ["latin"],

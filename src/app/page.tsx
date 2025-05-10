@@ -1,4 +1,4 @@
-import { x } from "@/x";
+import { x } from "@/x/server";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

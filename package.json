@@ -4,14 +4,17 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@xframework/config": "^0.4.0",
-    "@xframework/x": "^0.4.0",
+    "@t3-oss/env-nextjs": "^0.13.4",
+    "@xframework/config": "^0.4.1",
+    "@xframework/t3-oss__env": "^0.4.1",
+    "@xframework/x": "^0.4.1",
     "lucide-react": "^0.509.0",
     "next": "^15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sharp": "^0.34.1",
-    "tailwind-merge": "^3.2.0"
+    "tailwind-merge": "^3.2.0",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.1.3",
