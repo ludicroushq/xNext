@@ -3,23 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "build": "concurrently pnpm:build:*",
-    "build:next": "next build",
-    "ci:test": "concurrently pnpm:ci:test:*",
-    "ci:test:lint": "eslint --max-warnings 0 .",
-    "ci:test:pretty": "prettier --check .",
-    "ci:test:typecheck": "tsc --noEmit",
-    "dev": "concurrently pnpm:dev:*",
-    "dev:next": "next dev --turbo",
-    "prepare": "husky",
-    "start": "concurrently pnpm:start:*",
-    "start:next": "next start",
-    "test": "concurrently pnpm:test:*",
-    "test:lint": "eslint --fix --max-warnings 0 .",
-    "test:pretty": "prettier --write .",
-    "test:typecheck": "tsc --noEmit"
-  },
   "dependencies": {
     "@xframework/core": "^0.2.0",
     "lucide-react": "^0.469.0",
@@ -35,7 +18,6 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "concurrently": "^9.1.1",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "husky": "^9.1.7",
@@ -45,12 +27,82 @@
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wireit": "^0.14.12"
   },
   "lint-staged": {
     "*": [
       "eslint --fix",
       "prettier --ignore-unknown --write"
     ]
+  },
+  "scripts": {
+    "build": "wireit",
+    "test:ci": "wireit",
+    "dev": "wireit",
+    "prepare": "husky",
+    "start": "wireit",
+    "test": "wireit"
+  },
+  "wireit": {
+    "build": {
+      "dependencies": [
+        "next:build"
+      ]
+    },
+    "dev": {
+      "dependencies": [
+        "next:dev"
+      ]
+    },
+    "eslint:check": {
+      "command": "eslint --max-warnings 0 ."
+    },
+    "eslint:fix": {
+      "command": "eslint --fix --max-warnings 0 ."
+    },
+    "next:build": {
+      "command": "next build",
+      "output": [
+        ".next/**"
+      ],
+      "clean": false
+    },
+    "next:dev": {
+      "command": "next dev --turbo",
+      "service": true
+    },
+    "next:start": {
+      "command": "next start",
+      "service": true
+    },
+    "prettier:check": {
+      "command": "prettier --check ."
+    },
+    "prettier:write": {
+      "command": "prettier --write ."
+    },
+    "start": {
+      "dependencies": [
+        "next:start"
+      ]
+    },
+    "test": {
+      "dependencies": [
+        "eslint:fix",
+        "prettier:write",
+        "typescript:check"
+      ]
+    },
+    "test:ci": {
+      "dependencies": [
+        "eslint:check",
+        "prettier:check",
+        "typescript:check"
+      ]
+    },
+    "typescript:check": {
+      "command": "tsc --noEmit"
+    }
   }
 }
