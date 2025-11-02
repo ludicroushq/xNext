@@ -1,108 +1,13 @@
-"use client";
+import { client } from "@/server/client";
+import { NavbarClient } from "./index.client";
 
-import type { User } from "better-auth";
-import { ArrowRightIcon, MenuIcon, UserIcon } from "lucide-react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { authClient } from "@/lib/auth-client";
-
-type NavbarProps = {
-  user: User | undefined;
-};
-
-export function Navbar(props: NavbarProps) {
-  const { user } = props;
-  const pathname = usePathname();
-  const router = useRouter();
-
-  const menu = user ? (
-    <>
-      <li>
-        <Link className={pathname === "/app" ? "menu-active" : ""} href="/app">
-          Home
-        </Link>
-      </li>
-
-      <li>
-        <details>
-          <summary>
-            <UserIcon className="size-5" />
-          </summary>
-          <ul className="w-max md:top-5 md:right-0">
-            <li className="pointer-events-none">
-              <div className="flex flex-col items-start gap-0">
-                <div className="font-bold">{user.name}</div>
-                <div className="text-xs">{user.email}</div>
-              </div>
-            </li>
-            <li>
-              <button
-                onClick={async () => {
-                  await authClient.signOut({
-                    fetchOptions: {
-                      onSuccess: () => {
-                        router.push("/get-started");
-                      },
-                    },
-                  });
-                }}
-                type="button"
-              >
-                Sign Out
-              </button>
-            </li>
-          </ul>
-        </details>
-      </li>
-    </>
-  ) : (
-    <>
-      <li>
-        <Link className={pathname === "/" ? "menu-active" : ""} href="/">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          className={pathname === "/get-started" ? "menu-active" : ""}
-          href="/get-started"
-        >
-          Get Started
-          <ArrowRightIcon className="h-4 w-4" />
-        </Link>
-      </li>
-    </>
-  );
+export async function Navbar() {
+  const session = await client.auth.getSession();
 
   return (
     <div className="border-b border-b-base-300">
       <div className="container mx-auto">
-        <div className="navbar p-0">
-          <div className="navbar-start gap-4">
-            <Link className="font-bold text-xl" href={user ? "/app" : "/"}>
-              TODO
-            </Link>
-          </div>
-
-          <div className="navbar-end">
-            <div className="hidden md:flex">
-              <ul className="menu menu-horizontal space-x-2">{menu}</ul>
-            </div>
-            <div className="dropdown dropdown-end">
-              {/** biome-ignore lint/a11y/useSemanticElements: daisyui */}
-              <div
-                className="btn btn-ghost md:hidden"
-                role="button"
-                tabIndex={0}
-              >
-                <MenuIcon className="size-5" />
-              </div>
-              <ul className="menu dropdown-content z-1 mt-1 w-max min-w-52 gap-1 rounded-box border border-base-300 bg-base-100 text-base-content">
-                {menu}
-              </ul>
-            </div>
-          </div>
-        </div>
+        <NavbarClient user={session?.user} />
       </div>
     </div>
   );

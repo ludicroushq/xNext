@@ -1,11 +1,10 @@
-import { ORPCError } from "@orpc/server";
-import { withUserOs } from "@/server";
+import { baseOs } from "@/server";
 
-export const getSession = withUserOs.handler(({ context }) => {
+export const getSession = baseOs.handler(({ context }) => {
   const { user, session } = context;
 
   if (!user) {
-    throw new ORPCError("UNAUTHORIZED");
+    return null;
   }
 
   return {

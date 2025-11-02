@@ -1,8 +1,15 @@
 import { ORPCError, os } from "@orpc/server";
 import { cookies, headers } from "next/headers";
-import { getSession } from "@/lib/auth";
+import { cache } from "react";
+import { auth } from "@/lib/auth";
 
-const base = os.use(async ({ next }) =>
+export const getSession = cache(async () =>
+  auth.api.getSession({
+    headers: await headers(),
+  })
+);
+
+export const baseOs = os.use(async ({ next }) =>
   next({
     context: {
       cookies: await cookies(),
@@ -12,7 +19,7 @@ const base = os.use(async ({ next }) =>
   })
 );
 
-export const withoutUserOs = base.use(({ context, next }) => {
+export const withoutUserOs = baseOs.use(({ context, next }) => {
   const { user, session } = context;
 
   if (user || session) {
@@ -28,7 +35,7 @@ export const withoutUserOs = base.use(({ context, next }) => {
   });
 });
 
-export const withUserOs = base.use(({ context, next }) => {
+export const withUserOs = baseOs.use(({ context, next }) => {
   const { user, session } = context;
 
   if (!(user && session)) {

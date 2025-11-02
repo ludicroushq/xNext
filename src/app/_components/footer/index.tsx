@@ -1,7 +1,11 @@
-"use client";
+// biome-ignore lint/suspicious/useAwait: use cache
+async function getCurrentYear() {
+  "use cache";
+  return new Date().getFullYear();
+}
 
 export function Footer() {
-  const year = new Date().getFullYear();
+  const year = getCurrentYear();
 
   return (
     <div className="border-t border-t-base-300 py-6">
