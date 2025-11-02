@@ -4,7 +4,7 @@ import type { RouterClient } from "@orpc/server";
 import type { router } from "../routes";
 
 declare global {
-  var $client: RouterClient<typeof router> | undefined;
+  var $orpcClient: RouterClient<typeof router> | undefined;
 }
 
 const link = new RPCLink({
@@ -17,5 +17,5 @@ const link = new RPCLink({
   },
 });
 
-export const client: RouterClient<typeof router> =
-  globalThis.$client ?? createORPCClient(link);
+export const orpcClient: RouterClient<typeof router> =
+  globalThis.$orpcClient ?? createORPCClient(link);

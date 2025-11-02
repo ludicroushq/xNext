@@ -1,8 +1,8 @@
-import { client } from "@/server/client";
+import { orpcClient } from "@/server/client";
 import { NavbarClient } from "./index.client";
 
 export async function Navbar() {
-  const session = await client.auth.getSession();
+  const session = await orpcClient.auth.getSession();
 
   return (
     <div className="border-b border-b-base-300">
