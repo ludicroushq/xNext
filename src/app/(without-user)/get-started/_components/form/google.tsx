@@ -7,6 +7,7 @@ export function Google() {
       className="btn border-[#e5e5e5] bg-white text-black"
       onClick={() => {
         authClient.signIn.social({
+          callbackURL: "/app",
           provider: "google",
         });
       }}

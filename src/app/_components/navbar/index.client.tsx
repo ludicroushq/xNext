@@ -18,7 +18,7 @@ export function NavbarClient(props: NavbarClientProps) {
     <>
       <li>
         <Link className={pathname === "/app" ? "menu-active" : ""} href="/app">
-          Home
+          Dashboard
         </Link>
       </li>
 
