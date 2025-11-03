@@ -1,6 +1,4 @@
-// biome-ignore lint/suspicious/useAwait: use cache
-async function getCurrentYear() {
-  "use cache";
+function getCurrentYear() {
   return new Date().getFullYear();
 }
 

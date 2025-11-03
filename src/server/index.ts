@@ -1,13 +1,7 @@
+import "server-only";
 import { ORPCError, os } from "@orpc/server";
 import { cookies, headers } from "next/headers";
-import { cache } from "react";
-import { auth } from "@/lib/auth";
-
-export const getSession = cache(async () =>
-  auth.api.getSession({
-    headers: await headers(),
-  })
-);
+import { getSession } from "./utils/get-session";
 
 export const baseOs = os.use(async ({ next }) =>
   next({

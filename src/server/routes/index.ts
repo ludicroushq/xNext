@@ -1,5 +1,5 @@
-import { authRouter } from "./auth";
+import { authRoutes } from "./auth";
 
-export const router = {
-  auth: authRouter,
+export const routes = {
+  auth: authRoutes,
 };

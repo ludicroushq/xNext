@@ -1,5 +1,5 @@
 import "server-only";
 import { createRouterClient } from "@orpc/server";
-import { router } from "../routes";
+import { routes } from "../routes";
 
-globalThis.$orpcClient = createRouterClient(router, {});
+globalThis.$orpcClient = createRouterClient(routes, {});

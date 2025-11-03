@@ -3,8 +3,8 @@
 import type { User } from "better-auth";
 import { ArrowRightIcon, MenuIcon, UserIcon } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { authClient } from "@/lib/auth-client";
+import { usePathname } from "next/navigation";
+import { signOutAction } from "./actions";
 
 type NavbarClientProps = {
   user: User | undefined;
@@ -13,7 +13,6 @@ type NavbarClientProps = {
 export function NavbarClient(props: NavbarClientProps) {
   const { user } = props;
   const pathname = usePathname();
-  const router = useRouter();
 
   const menu = user ? (
     <>
@@ -36,20 +35,14 @@ export function NavbarClient(props: NavbarClientProps) {
               </div>
             </li>
             <li>
-              <button
-                onClick={async () => {
-                  await authClient.signOut({
-                    fetchOptions: {
-                      onSuccess: () => {
-                        router.push("/get-started");
-                      },
-                    },
-                  });
-                }}
-                type="button"
-              >
-                Sign Out
-              </button>
+              <form action={signOutAction} className="block">
+                <button
+                  className="w-full cursor-pointer text-left"
+                  type="submit"
+                >
+                  Sign Out
+                </button>
+              </form>
             </li>
           </ul>
         </details>
