@@ -39,15 +39,16 @@
   "scripts": {
     "build": "f [*:build]",
     "ci:test": "f [ci:test:*]",
-    "ci:test:typecheck": "bun run --bun tsc --noEmit",
+    "ci:test:typecheck": "f [next:typegen] -- bun run --bun tsc --noEmit",
     "ci:test:ultracite": "bun run --bun ultracite check",
     "dev": "f [*:dev]",
     "next:build": "next build",
     "next:dev": "next dev",
     "next:start": "next start",
+    "next:typegen": "bun run next typegen",
     "start": "f [*:start]",
     "test": "f [test:*]",
-    "test:typecheck": "bun run --bun tsc --noEmit",
+    "test:typecheck": "f [next:typegen] -- bun run --bun tsc --noEmit",
     "test:ultracite": "bun run --bun ultracite fix"
   },
   "trustedDependencies": [
