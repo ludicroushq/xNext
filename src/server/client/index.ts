@@ -17,5 +17,9 @@ const link = new RPCLink({
   },
 });
 
+if (typeof window === "undefined" && !globalThis.$orpcClient) {
+  await import("./server");
+}
+
 export const orpcClient: RouterClient<typeof routes> =
   globalThis.$orpcClient ?? createORPCClient(link);
