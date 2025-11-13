@@ -10,7 +10,12 @@
   "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/*", "!src/db/migrations/**/*", "bun.lock"]
+    "includes": [
+      "**/*",
+      "!src/db/migrations/**/*",
+      "bun.lock",
+      "!**/__generated__/**/*"
+    ]
   },
   "json": {
     "assist": {
