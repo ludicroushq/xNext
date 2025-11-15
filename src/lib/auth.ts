@@ -19,9 +19,7 @@ export const auth = betterAuth({
   }),
   plugins: [nextCookies()],
   session: {
-    // biome-ignore lint/style/noMagicNumbers: milliseconds to seconds
     expiresIn: ms("180d") / 1000,
-    // biome-ignore lint/style/noMagicNumbers: milliseconds to seconds
     updateAge: ms("1d") / 1000,
   },
   socialProviders: {
