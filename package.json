@@ -6,8 +6,7 @@
     "@orpc/client": "^1.11.2",
     "@orpc/react": "^1.11.2",
     "@orpc/server": "^1.11.2",
-    "arkenv": "^0.7.5",
-    "arktype": "^2.1.26",
+    "@t3-oss/env-nextjs": "^0.13.8",
     "better-auth": "^1.3.34",
     "drizzle-orm": "^1.0.0-beta.1-27d2721",
     "lucide-react": "^0.553.0",
@@ -31,7 +30,6 @@
     "@vitejs/plugin-react": "^5.1.1",
     "@vitest/coverage-v8": "^4.0.9",
     "babel-plugin-react-compiler": "^1.0.0",
-    "daisyui": "^5.5.5",
     "drizzle-kit": "^1.0.0-beta.1-27d2721",
     "jsdom": "^27.2.0",
     "lefthook": "^2.0.4",
@@ -48,7 +46,7 @@
     "ci:test": "run-p ci:test:*",
     "ci:test:typecheck": "run-p next:typegen && bun run --bun tsc --noEmit",
     "ci:test:ultracite": "bun run --bun ultracite check",
-    "ci:test:vitest": "bun run --bun vitest run",
+    "ci:test:vitest": "bun run --bun vitest run --coverage",
     "dev": "run-p *:dev",
     "next:build": "bun run next build",
     "next:dev": "bun run next dev",
@@ -58,7 +56,7 @@
     "test": "run-p test:*",
     "test:typecheck": "run-p next:typegen && bun run --bun tsc --noEmit",
     "test:ultracite": "bun run --bun ultracite fix",
-    "test:vitest": "bun run --bun vitest run"
+    "test:vitest": "bun run --bun vitest run --coverage"
   },
   "trustedDependencies": [
     "lefthook"

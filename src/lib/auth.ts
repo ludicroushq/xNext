@@ -6,12 +6,6 @@ import { google } from "@/config/auth";
 import { db, schema } from "../db";
 
 export const auth = betterAuth({
-  advanced: {
-    database: {
-      generateId: false,
-      useNumberId: true,
-    },
-  },
   database: drizzleAdapter(db, {
     provider: "sqlite",
     schema,
