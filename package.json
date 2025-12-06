@@ -8,14 +8,17 @@
     "@orpc/server": "^1.11.2",
     "@t3-oss/env-nextjs": "^0.13.8",
     "better-auth": "^1.3.34",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "drizzle-orm": "^1.0.0-beta.1-27d2721",
-    "lucide-react": "^0.553.0",
+    "lucide-react": "^0.556.0",
     "ms": "^2.1.3",
     "next": "^16.0.3",
     "npm-run-all": "^4.1.5",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.5",
@@ -34,6 +37,7 @@
     "jsdom": "^27.2.0",
     "lefthook": "^2.0.4",
     "tailwindcss": "^4.1.17",
+    "tw-animate-css": "^1.4.0",
     "typescript": "^5.9.3",
     "ultracite": "6.3.3",
     "vite-tsconfig-paths": "^5.1.4",
