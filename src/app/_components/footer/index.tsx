@@ -9,7 +9,7 @@ export async function Footer() {
 
   return (
     <section className="py-8">
-      <div className="container">
+      <div className="container mx-auto">
         <footer>
           <div className="border-t pt-8 font-medium text-muted-foreground text-sm">
             <p>&copy; {year} TODO. All rights reserved.</p>
