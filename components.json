@@ -8,7 +8,11 @@
     "utils": "@/app/_shadcn/lib/utils"
   },
   "iconLibrary": "lucide",
-  "registries": {},
+  "registries": {
+    "@shadcnblocks": {
+      "url": "https://shadcnblocks.com/r/{name}"
+    }
+  },
   "rsc": true,
   "style": "new-york",
   "tailwind": {

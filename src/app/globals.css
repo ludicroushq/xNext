@@ -2,7 +2,6 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@plugin "@tailwindcss/typography";
 
 @theme inline {
   --font-sans: var(--font-inter);
@@ -122,5 +121,18 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* https://github.com/shadcn-ui/ui/issues/6843 */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role="button"][aria-disabled="true"] {
+    cursor: default;
   }
 }

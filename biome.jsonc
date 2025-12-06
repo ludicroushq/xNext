@@ -14,7 +14,8 @@
       "**/*",
       "!src/db/migrations/**/*",
       "bun.lock",
-      "!**/__generated__/**/*"
+      "!**/__generated__/**/*",
+      "!src/app/_shadcn/**/*"
     ]
   },
   "json": {

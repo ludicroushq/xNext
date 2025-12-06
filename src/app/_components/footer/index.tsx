@@ -4,20 +4,18 @@ async function getCurrentYear() {
   return new Date().getFullYear();
 }
 
-export function Footer() {
-  const year = getCurrentYear();
+export async function Footer() {
+  const year = await getCurrentYear();
 
   return (
-    <div className="border-t border-t-base-300 py-6">
-      <div className="container mx-auto">
-        <footer className="footer">
-          <nav>
-            <h6 className="footer-title">
-              &copy; {year} TODO. All rights reserved.
-            </h6>
-          </nav>
+    <section className="py-8">
+      <div className="container">
+        <footer>
+          <div className="border-t pt-8 font-medium text-muted-foreground text-sm">
+            <p>&copy; {year} TODO. All rights reserved.</p>
+          </div>
         </footer>
       </div>
-    </div>
+    </section>
   );
 }
