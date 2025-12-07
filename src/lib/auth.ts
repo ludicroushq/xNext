@@ -1,3 +1,4 @@
+import { createId } from "@paralleldrive/cuid2";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
@@ -7,10 +8,7 @@ import { db, schema } from "../db";
 
 export const auth = betterAuth({
   advanced: {
-    database: {
-      generateId: false,
-      useNumberId: true,
-    },
+    generateId: () => createId(),
   },
   database: drizzleAdapter(db, {
     provider: "sqlite",
